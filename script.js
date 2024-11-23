@@ -1,12 +1,11 @@
 const yesBtn = document.getElementById("yesBtn");
-const noBtn = document.getElementById("noBtn");
+const cancelBtn = document.getElementById("cancelBtn");
 
 // Ganti dengan nomor WhatsApp kamu (gunakan format internasional tanpa tanda "+")
-const yourPhoneNumber = "6282121141523";
+const yourPhoneNumber = "6281234567890";
 
-// Pesan untuk masing-masing tombol
-const yesMessage = "Hai, aku juga suka sama kamu! 😊❤️";
-const noMessage = "Terima kasih atas jawabannya. Aku tetap menghargai kamu! 😊";
+// Pesan untuk tombol "Ya"
+const yesMessage = "Hai, aku suka sama kamu juga! 😊❤️";
 
 // Fungsi untuk mengirim pesan ke WhatsApp
 function sendToWhatsApp(message) {
@@ -14,10 +13,31 @@ function sendToWhatsApp(message) {
     window.open(whatsappURL, "_blank");
 }
 
+// Fungsi untuk membuat tombol "Batal" bergerak ke posisi acak
+function moveButton() {
+    const container = document.querySelector(".container");
+    const containerRect = container.getBoundingClientRect();
+    
+    // Dapatkan dimensi tombol
+    const btnWidth = cancelBtn.offsetWidth;
+    const btnHeight = cancelBtn.offsetHeight;
+
+    // Dapatkan posisi acak dalam area container
+    const newLeft = Math.random() * (containerRect.width - btnWidth);
+    const newTop = Math.random() * (containerRect.height - btnHeight);
+
+    // Terapkan posisi baru pada tombol
+    cancelBtn.style.position = "absolute";
+    cancelBtn.style.left = `${newLeft}px`;
+    cancelBtn.style.top = `${newTop}px`;
+}
+
+// Pindahkan tombol "Batal" saat diklik atau kursor mendekat
+cancelBtn.addEventListener("mouseenter", moveButton);
+cancelBtn.addEventListener("click", moveButton);
+
+// Aksi ketika tombol "Ya" diklik
 yesBtn.addEventListener("click", () => {
     sendToWhatsApp(yesMessage);
 });
 
-noBtn.addEventListener("click", () => {
-    sendToWhatsApp(noMessage);
-});
