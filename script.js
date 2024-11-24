@@ -2,10 +2,10 @@ const yesBtn = document.getElementById("yesBtn");
 const cancelBtn = document.getElementById("cancelBtn");
 
 // Ganti dengan nomor WhatsApp kamu (gunakan format internasional tanpa tanda "+")
-const yourPhoneNumber = "6281234567890";
+const yourPhoneNumber = "6282141141523";
 
 // Pesan untuk tombol "Ya"
-const yesMessage = "Hai, aku suka sama kamu juga! 😊❤️";
+const yesMessage = "Hai, aku jugaa sukaa samaa kamuu ! 😊❤️";
 
 // Fungsi untuk mengirim pesan ke WhatsApp
 function sendToWhatsApp(message) {
